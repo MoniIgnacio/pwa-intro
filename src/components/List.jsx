@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import useList from '../hooks/useList';
+import { useState } from "react";
+import useList from "../hooks/useList";
 
 export default function List() {
   const tasks = useList([]);
 
-  const [newTask, setNewTask] = useState('');
+  const [newTask, setNewTask] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     tasks.push(newTask);
-    setNewTask('');
+    setNewTask("");
   };
 
   const handleInputChange = (e) => {
@@ -25,6 +25,7 @@ export default function List() {
           onChange={handleInputChange}
           type="text"
           placeholder="New Task"
+          // onKeyDown={e => e.key === 'Enter' && handleInputChange()}
         />
         <button>Create Task</button>
       </form>
@@ -40,7 +41,7 @@ export default function List() {
                   onClick={() => tasks.remove(index)}
                   checked={false}
                 />
-                  {task}
+                {task}
               </li>
             );
           })}
